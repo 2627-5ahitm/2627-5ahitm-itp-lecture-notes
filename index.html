@@ -5,8 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="author" content="Thomas Stütz, Christian Aberger">
 <link rel="icon" type="image/png" href="themes/favicon.png">
-<title>Index page</title>
+<title>26/27 - 5ahitm - syp - Lecture Notes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -444,20 +445,348 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
     }
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Index page</h1>
+<h1>26/27 - 5ahitm - syp - Lecture Notes</h1>
+<div class="details">
+<span id="author" class="author">Thomas Stütz, Christian Aberger</span><br>
+<span id="revnumber">version 1.0.0,</span>
+<span id="revdate">2026-09-22</span>
+<br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_2026_09_22">1. 2026-09-22</a>
+<ul class="sectlevel2">
+<li><a href="#_ai_best_practise">1.1. AI Best Practise</a></li>
+<li><a href="#_contxt_window_management">1.2. Contxt &amp; Window Management</a></li>
+<li><a href="#_context_management_rules">1.3. Context Management Rules</a></li>
+<li><a href="#_prompt_engineering">1.4. Prompt Engineering</a></li>
+<li><a href="#_wissen">Wissen</a></li>
+<li><a href="#_prcedurales">1.5. Prcedurales</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div class="imageblock">
-<div class="content">
-<img src="images/img.png" alt="img">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="icon"><a class="image" href="https://github.com/2627-3ihif/2627-3ihif-syp-lecture-notes/blob/main/asciidocs/docs/index.adoc"><i class="fa fa-file-text-o"></i></a></span> ‏ ‏ ‎
+<span class="icon"><a class="image" href="https://github.com/2627-3ihif/2627-3ihif-syp-lecture-notes"><i class="fa fa-github-square"></i></a></span> ‏ ‏ ‎
+<span class="icon"><a class="image" href="http://edufs.edu.htl-leonding.ac.at/~t.stuetz/hugo/2021/01/lecture-notes/"><i class="fa fa-home"></i></a></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_09_22"><a class="anchor" href="#_2026_09_22"></a>1. 2026-09-22</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ai_best_practise"><a class="anchor" href="#_ai_best_practise"></a>1.1. AI Best Practise</h3>
+<div class="sect3">
+<h4 id="_tokens_thinking"><a class="anchor" href="#_tokens_thinking"></a>1.1.1. Tokens &amp; "Thinking"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_what_thinking_means"><a class="anchor" href="#_what_thinking_means"></a>1.1.2. What "Thinking" Means</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Next-Token Predictors: Predict the most likely following text via statistical pattern completion.</p>
+</li>
+<li>
+<p>No Intrinsic Intent: No memory, beliefs or genuine understanding</p>
+</li>
+<li>
+<p>"Thinking" Models: Utilize chain-of-thought scratchpads (e.g. o1, Claude thinking) where '*more tokens = more reasoning</p>
+</li>
+<li>
+<p>Pattern Recognition: Matches against billions of learned patterns rather than understanding code semantics. &#8594; Konsequenz: Es wird in markdown "programmiert", da auch die Quellen mit denen verglichen wird, natürlichsprachig sind.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tokens_explained"><a class="anchor" href="#_tokens_explained"></a>1.1.3. Tokens Explained</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Token Units: LLM read tokens (~3/4 word), not raw characters</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Example: <code>kubectl apply -f deployment.yaml</code> &#8594; 7 tokens</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Token Limits: Hard combined limit across input prompt and output completion.</p>
+</li>
+<li>
+<p>Trade-offs: More tokens increase cost and latency, but provide richer context.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contxt_window_management"><a class="anchor" href="#_contxt_window_management"></a>1.2. Contxt &amp; Window Management</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Complete Scope: System prompt + conversation history + user input + output response</p>
+<div class="ulist">
+<ul>
+<li>
+<p>GPT-4o: 1M+ tokens (~2500 pages)</p>
+</li>
+<li>
+<p>Gemini: 1M+ tokens (~2500 pages)</p>
+</li>
+<li>
+<p>Claude: 1M+ tokens (~2500 pages)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>"Lost in the Middle" Effect: Bigger ungleich better; attention and reasoning degrade as context fills.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_context_management_rules"><a class="anchor" href="#_context_management_rules"></a>1.3. Context Management Rules</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Curate Relevance: Never dump entire repositories; provide only relevant snippets.</p>
+</li>
+<li>
+<p>Structured Formatting: Clear headings, markdown and bullet points assist parsing.</p>
+</li>
+<li>
+<p>Primacy &amp; Recency: Place critical constraints at the beginning and end.</p>
+</li>
+<li>
+<p>Reset Often: Start fresh conversation when switching topics to avoid stale context.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prompt_engineering"><a class="anchor" href="#_prompt_engineering"></a>1.4. Prompt Engineering</h3>
+<div class="sect3">
+<h4 id="_prompt_engineering_basics"><a class="anchor" href="#_prompt_engineering_basics"></a>1.4.1. Prompt Engineering: Basics</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Vague Prompt: "Write me a Dockerfile" &#8594; unpredictable output.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Specific prompt: "Write a multi-stage Dockerfile for Go 1.24, non-root nuser, pinned digests, no hardcoded secrets "</p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_prompt_engineering_advanced"><a class="anchor" href="#_prompt_engineering_advanced"></a>1.4.2. Prompt Engineering: Advanced</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>System Prompts: Explicitly define persona and role (e.g. "You are a K8s security auditor"). &#8594; ganz schlecht. Er ist kein Experte und würde nichts mahr nachsehen.</p>
+</li>
+<li>
+<p>Few-Shot examples: &#8230;&#8203;</p>
+</li>
+<li>
+<p>Chain-ofThought: Use "Think step by step" to enforce reasoning before answers.</p>
+</li>
+<li>
+<p>Iterative Refinement: Avoid one-shot expectations; generate, critique and improve.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Superpowers mit Design Patterns
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Test Driven development</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Kein Produktivcode ohne roten Test vorab</p>
+</li>
+<li>
+<p>Das minimalste wird gemacht, damit der Test rot wird</p>
+</li>
+<li>
+<p>Rule: Beim Schreiben von Test wird kein Produktivcode geändert</p>
+</li>
+<li>
+<p>Rule: Beim Schreiben von Produktionscode wird kein Test geändert</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_wissen"><a class="anchor" href="#_wissen"></a>Wissen</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Context</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Vgl Harness zu Context
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Memory:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>ist projektbezogen (eigenes Verzeichnis).</p>
+</li>
+<li>
+<p>Memory ist klein</p>
+</li>
+<li>
+<p>bei Verwendung von <strong>Worktrees</strong> verschwindet das Memory, da die Worktrees in ein anderes Verzeichnis ausgelagert werden.</p>
+</li>
+<li>
+<p>Wenn das Memory zu groß wird, liest er nicht mehr das ganze Memory-File und er "vergisst" was.</p>
+</li>
+<li>
+<p>Will man sub-agenta haben und worktrees, dann lässt man den AI-agent träumen.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Continuations</p>
+</li>
+<li>
+<p>repo i.S.v. Commit-History</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Die Commit-History ist eine wichtige Wissenbasis.</p>
+</li>
+<li>
+<p>Voraussetzung: nicht manuell committen</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Source-Code</p>
+<div class="ulist">
+<ul>
+<li>
+<p>eher nicht als Wissenquelle verwenden
+eher verwirrend für den agent</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prcedurales"><a class="anchor" href="#_prcedurales"></a>1.5. Prcedurales</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>skills:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Besteht aus einem Prompt-Mapper (Reizworte) und Text und auch Dateien die er braucht zB shell-Files</p>
+</li>
+<li>
+<p>Wenn die Reiszworte im Prompt vorkommen, dann wird der Text des Skills gelesen (Instruktionen)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Es gibt shard-skills und projektspezifische Skills</p>
+</li>
+<li>
+<p>commands</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Prozedurale Anweisungen</p>
+</li>
+<li>
+<p>zB <strong>träumen</strong>, zum Reorganisieren des Memories und die Infos aus dem Memory sollen in die Projektrepos übernommen werden.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eFiAypGiGds?si=jchpjbdycgXSLgiY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>rules</p>
+</li>
+<li>
+<p>tools/mcp</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Alle skills and rules werden in einem git-submodule "agents-and-skills" gespeichert und den Projektrepos hinzugefügt
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-09-22 06:04:00 UTC
+Version 1.0.0<br>
+Last updated 2026-09-22 07:45:55 UTC
 </div>
 </div>
 </body>
