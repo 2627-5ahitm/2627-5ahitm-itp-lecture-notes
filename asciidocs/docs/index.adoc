@@ -1,4 +1,164 @@
-= Index page
+= 26/27 - 5ahitm - syp - Lecture Notes
+Thomas Stütz, Christian Aberger
+1.0.0, {docdate}: Lecture Notes for Courses at HTL Leonding
+:icons: font
+:experimental:
+:sectnums:
+:source-highlighter: rouge
+:docinfo: shared
 ifndef::imagesdir[:imagesdir: images]
+:toc:
+ifdef::backend-html5[]
+// https://fontawesome.com/v4.7.0/icons/
+icon:file-text-o[link=https://github.com/2627-3ihif/2627-3ihif-syp-lecture-notes/blob/main/asciidocs/docs/{docname}.adoc] ‏ ‏ ‎
+icon:github-square[link=https://github.com/2627-3ihif/2627-3ihif-syp-lecture-notes] ‏ ‏ ‎
+icon:home[link=http://edufs.edu.htl-leonding.ac.at/~t.stuetz/hugo/2021/01/lecture-notes/]
+endif::backend-html5[]
 
-image::img.png[]
+== 2026-09-22
+
+=== AI Best Practise
+
+==== Tokens & "Thinking"
+
+==== What "Thinking" Means
+
+* Next-Token Predictors: Predict the most likely following text via statistical pattern completion.
+
+* No Intrinsic Intent: No memory, beliefs or genuine understanding
+
+* "Thinking" Models: Utilize chain-of-thought scratchpads (e.g. o1, Claude thinking) where '*more tokens = more reasoning
+
+* Pattern Recognition: Matches against billions of learned patterns rather than understanding code semantics. -> Konsequenz: Es wird in markdown "programmiert", da auch die Quellen mit denen verglichen wird, natürlichsprachig sind.
+
+
+==== Tokens Explained
+
+* Token Units: LLM read tokens (~3/4 word), not raw characters
+
+** Example: `kubectl apply -f deployment.yaml` -> 7 tokens
+
+* Token Limits: Hard combined limit across input prompt and output completion.
+
+* Trade-offs: More tokens increase cost and latency, but provide richer context.
+
+=== Contxt & Window Management
+
+* Complete Scope: System prompt + conversation history + user input + output response
+
+** GPT-4o: 1M+ tokens (~2500 pages)
+** Gemini: 1M+ tokens (~2500 pages)
+** Claude: 1M+ tokens (~2500 pages)
+
+* "Lost in the Middle" Effect: Bigger ungleich better; attention and reasoning degrade as context fills.
+
+=== Context Management Rules
+
+* Curate Relevance: Never dump entire repositories; provide only relevant snippets.
+
+* Structured Formatting: Clear headings, markdown and bullet points assist parsing.
+
+* Primacy & Recency: Place critical constraints at the beginning and end.
+
+* Reset Often: Start fresh conversation when switching topics to avoid stale context.
+
+
+
+=== Prompt Engineering
+
+==== Prompt Engineering: Basics
+
+* Vague Prompt: "Write me a Dockerfile" -> unpredictable output.
+
+Specific prompt: "Write a multi-stage Dockerfile for Go 1.24, non-root nuser, pinned digests, no hardcoded secrets "
+
+...
+
+
+==== Prompt Engineering: Advanced
+
+* System Prompts: Explicitly define persona and role (e.g. "You are a K8s security auditor"). -> ganz schlecht. Er ist kein Experte und würde nichts mahr nachsehen.
+
+* Few-Shot examples: ...
+
+* Chain-ofThought: Use "Think step by step" to enforce reasoning before answers.
+
+* Iterative Refinement: Avoid one-shot expectations; generate, critique and improve.
+
+
+TIP: Superpowers mit Design Patterns
+
+* Test Driven development
+
+** Kein Produktivcode ohne roten Test vorab
+** Das minimalste wird gemacht, damit der Test rot wird
+** Rule: Beim Schreiben von Test wird kein Produktivcode geändert
+** Rule: Beim Schreiben von Produktionscode wird kein Test geändert
+
+
+[Tafelbild]
+
+=== Wissen
+
+* Context
+
+NOTE: Vgl Harness zu Context
+
+
+* Memory:
+** ist projektbezogen (eigenes Verzeichnis).
+** Memory ist klein
+** bei Verwendung von *Worktrees* verschwindet das Memory, da die Worktrees in ein anderes Verzeichnis ausgelagert werden.
+** Wenn das Memory zu groß wird, liest er nicht mehr das ganze Memory-File und er "vergisst" was.
+** Will man sub-agenta haben und worktrees, dann lässt man den AI-agent träumen.
+
+
+* Continuations
+
+
+* repo i.S.v. Commit-History
+** Die Commit-History ist eine wichtige Wissenbasis.
+** Voraussetzung: nicht manuell committen
+
+
+* Source-Code
+** eher nicht als Wissenquelle verwenden
+eher verwirrend für den agent
+
+
+
+=== Prcedurales
+
+* skills:
+** Besteht aus einem Prompt-Mapper (Reizworte) und Text und auch Dateien die er braucht zB shell-Files
+** Wenn die Reiszworte im Prompt vorkommen, dann wird der Text des Skills gelesen (Instruktionen)
+* Es gibt shard-skills und projektspezifische Skills
+* commands
+** Prozedurale Anweisungen
+** zB *träumen*, zum Reorganisieren des Memories und die Infos aus dem Memory sollen in die Projektrepos übernommen werden.
++
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eFiAypGiGds?si=jchpjbdycgXSLgiY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
+
+* rules
+* tools/mcp
+
+
+IMPORTANT: Alle skills and rules werden in einem git-submodule "agents-and-skills" gespeichert und den Projektrepos hinzugefügt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
