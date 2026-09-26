@@ -15,6 +15,7 @@ icon:github-square[link=https://github.com/2627-3ihif/2627-3ihif-syp-lecture-not
 icon:home[link=http://edufs.edu.htl-leonding.ac.at/~t.stuetz/hugo/2021/01/lecture-notes/]
 endif::backend-html5[]
 
+
 == 2026-09-22
 
 === AI Best Practise
@@ -192,15 +193,173 @@ IMPORTANT: Alle skills and rules werden in einem git-submodule "agents-and-skill
 
 
 
+== 2026-09-16 [Hanan Mehic]
+
+Ein Vorgehensmodell sagt, in welcher Reihenfolge man in einem Projekt arbeitet.
+Es legt fest, wann geplant, wann gebaut und wann geprüft wird.
+
+.Tafelbild: die vier Modelle nebeneinander
+image::tafelbild/vorgehensmodelle.png[Vorgehensmodelle am Tafelbild, 900]
+
+=== Wasserfall
+
+Eine Phase nach der anderen. Eine Phase ist fertig, bevor die nächste startet.
+
+[cols="1,3", options="header"]
+|===
+|Phase |Was passiert
+
+|IST |Ist-Zustand aufnehmen: Was gibt es schon?
+|GE |Grobentwurf: die grobe Struktur des Systems
+|FE |Feinentwurf: die Details festlegen
+|IMPL |Implementierung: Code schreiben
+|BW |Betrieb und Wartung
+|===
+
+* Vorteil: einfach zu verstehen und leicht zu planen.
+* Nachteil: Änderungen am Ende sind teuer, weil man zurück in frühere Phasen muss.
+* Fehler im Entwurf fallen erst spät auf.
+* Passt nur, wenn die Anforderungen von Anfang an feststehen.
+
+=== RUP (Rational Unified Process)
+
+Am Tafelbild sind die Kästen versetzt und überlappen sich. Genau das ist der Punkt:
+die Phasen laufen nicht streng nacheinander.
+
+* Vier Phasen: Inception, Elaboration, Construction, Transition.
+* Die Phasen überlappen sich und werden mehrmals durchlaufen (iterativ).
+* Risiken werden früh angegangen, nicht erst am Schluss.
+* Die Architektur steht im Mittelpunkt.
+
+=== Scrum (agil)
+
+* Die Arbeit läuft in kurzen *Sprints*, zum Beispiel zwei Wochen.
+* Im *Product Backlog* stehen alle Wünsche, nach Wichtigkeit sortiert.
+* Jeder Sprint liefert ein *Inkrement*: etwas, das man benutzen kann.
+* Nach jedem Sprint gibt es Review und Feedback, danach wird neu priorisiert.
+
+NOTE: Scrum garantiert kein gutes Produkt. Es sorgt nur dafür, dass man früh und oft merkt, wenn etwas falsch läuft.
+
+=== Spec-Driven Development (SDD)
+
+. *Spec schreiben:* Was soll rauskommen? Welche Grenzen gibt es? Woran messe ich das Ergebnis?
+. *Bauen lassen:* Die KI schreibt den Code.
+. *Prüfen:* Ergebnis gegen die Spec halten, nicht gegen das Bauchgefühl.
+. *Nachbessern:* Abweichungen korrigieren und wieder prüfen.
+
+Du bist der Architekt, die KI ist der Bauarbeiter.
+
+IMPORTANT: Die Spec ist die Quelle der Wahrheit -- nicht die KI und nicht die eigene Erinnerung.
+
+=== Die vier Modelle im Vergleich
+
+[cols="1,2,2", options="header"]
+|===
+|Modell |Ablauf |Änderungen unterwegs
+
+|Wasserfall |streng nacheinander |teuer
+|RUP |Phasen überlappen, mehrere Durchläufe |eingeplant
+|Scrum |kurze Sprints |nach jedem Sprint möglich
+|SDD |Spec -> bauen -> prüfen |Spec ändern, neu bauen lassen
+|===
+
+== 2026-09-21 [Hanan Mehic]
+
+=== Tokens und "Thinking"
 
 
 
+Eine KI *denkt nicht*. Sie sagt voraus, welches Token als Nächstes am besten passt.
+
+* *Next Token Predictor:* Sie rät das wahrscheinlichste Muster, Token für Token.
+* *Kein eigener Wille:* Kein Gedächtnis, keine Absicht, kein echtes Verstehen.
+* *Pattern Recognition:* Sie vergleicht mit Milliarden gelernter Muster.
+* *"Thinking"-Modelle:* Sie schreiben sich Zwischenschritte auf und finden sich dadurch in der Landschaft besser zurecht.
+
+.Die KI sucht den tiefsten Punkt in der Landschaft. Dort liegt die perfekte Antwort.
+image::tafelbild/3d-landschaft.png[Landschaft mit der perfekten Antwort, 700]
+
+Die Kurve ist ein Bild für die Suche nach der Antwort. Die roten Punkte sind Stellen, an
+denen die KI hängen bleibt: lokal sieht es gut aus, aber es ist nicht der tiefste Punkt.
+Ein "Thinking"-Modell sucht weiter und landet eher unten.
+
+=== Context Window
 
 
 
+Die KI ist *zustandslos*. Sie erinnert sich an nichts. Bei jeder Anfrage wird der komplette
+Context noch einmal mitgeschickt.
+
+* Ein Token ist ungefähr ein Dreiviertel-Wort.
+* Beispiel: `kubectl apply -f deployment.yaml` sind 7 Tokens.
+* Das Context Window ist das Limit für alles zusammen: Anweisungen + Verlauf + Eingabe + Antwort.
+* Aktuelle Agenten schaffen etwa 1M Tokens.
+* Die KI beachtet *Anfang und Ende* am stärksten. Die Mitte geht unter.
+
+.Context Management Rules
+* Wichtiges an den Anfang und ans Ende schreiben.
+* Nicht das ganze Repo reinkippen, sondern nur die relevanten Stellen.
+* Bei einem neuen Thema einen neuen Chat starten.
+* Billige Modelle (Haiku) für die Fleißarbeit: Brownfield-Code lesen, Websuche.
+* Für lange Aufgaben einen Skill für den Continuation Prompt nutzen.
+
+=== Woher der Agent sein Wissen holt
 
 
 
+Reihenfolge wie am Tafelbild -- von oben nach unten wird nachgeschaut:
+
+[cols="1,2,4", options="header"]
+|===
+|Nr. |Quelle |Wofür
+
+|1 |Context |Alles, was gerade in der Unterhaltung steht.
+|1.5 |`CLAUDE.md` / `AGENTS.md` |Projektregeln, die immer mitgelesen werden.
+|2 |Memory |Kurze, wiederverwendbare Notizen zum Projekt.
+|3 |`openspec/` |Die Spezifikation: Anforderungen und Akzeptanzkriterien.
+|4 |`src/` |Der Quellcode.
+|===
+
+WARNING: `src/` ist am Tafelbild durchgestrichen. Quellcode ist eine schlechte Wissensquelle -- er verwirrt den Agent mehr, als er hilft. Erst beim Apply reinschauen.
+
+Zum Memory:
+
+* Memory ist projektbezogen und liegt in einem eigenen Verzeichnis.
+* Memory muss *klein* bleiben. Wird es zu groß, liest der Agent nicht mehr alles und vergisst Dinge.
+* Bei *Worktrees* liegt das Arbeitsverzeichnis woanders -- das Memory ist dann weg.
+* Auch die Commit-History ist Wissen. Dafür darf man aber nicht von Hand committen.
+
+=== Skills, Commands, Rules, Tools und MCP
 
 
 
+[cols="1,3", options="header"]
+|===
+|Baustein |Wofür
+
+|Skill |Anleitung, die geladen wird, sobald passende Reizwörter im Prompt vorkommen.
+|Command |Ein fester Ablauf, den man selbst startet -- für wiederkehrende Arbeiten.
+|Rule |Vorgabe, die immer gilt.
+|Tool / MCP |Zugriff nach außen: Dateien, Shell, externe Dienste.
+|===
+
+* Im *Frontmatter* eines Skills stehen die Reizwörter. Passt eines davon, wird der Skill gelesen.
+* Es gibt gemeinsame Skills und projektspezifische Skills.
+* *Tools sparen Tokens.* Beispiel: Statt den ganzen Build-Output in den Context zu kippen, holt ein Tool nur die Fehlerzeilen heraus.
+
+=== TDD und Submodules
+
+
+
+Test-Driven Development in drei Schritten:
+
+. *Rot:* Test schreiben. Er muss fehlschlagen -- der Code fehlt ja noch.
+. *Grün:* Das Minimalste schreiben, damit der Test durchläuft. Nicht mehr.
+. *Refactor:* Code aufräumen, die Tests bleiben grün.
+
+Zwei Regeln:
+
+* Beim Test schreiben wird *kein* Produktivcode geändert.
+* Beim Produktivcode schreiben wird *kein* Test geändert.
+
+NOTE: Skills, Commands und Rules liegen in einem eigenen Überrepo und werden als *Git-Submodule* in die Projekte eingebunden. So kann man sie in mehreren Repos verwenden.
