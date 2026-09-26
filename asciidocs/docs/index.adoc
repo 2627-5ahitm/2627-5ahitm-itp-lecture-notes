@@ -86,6 +86,46 @@ Specific prompt: "Write a multi-stage Dockerfile for Go 1.24, non-root nuser, pi
 * Iterative Refinement: Avoid one-shot expectations; generate, critique and improve.
 
 
+=== Spec-Driven Development (SDD)
+
+Architecting software with AI as the builder.
+
+==== Spec-Driven Principles
+
+* Role Separation: You are the architect, AI is the builder.
+
+* Explicit Requirements: Define constraints, behaviors and edge cases up front.
+
+* Acceptance Criteria: Specify measurable tests and verification steps.
+
+* Objective Review: Review AI outputs strictly against the spec, not gut feeling.
+
+==== The SDD Workflow
+
+* 01 Spec: Define what to build
+
+* 02 Generate: AI writes the code
+
+* 03 Review: Check against spec
+
+* 04 Iterate: Refine with feedback
+
+NOTE: The spec is your source of truth -- not the AI, not your assumptions.
+
+=== Key Takeaways
+
+[quote]
+"AI doesn't think. It predicts. Your job is to think for it."
+
+* Manage Context: Keep inputs minimal, structured and focused.
+
+* Write Specs: Direct implementation with strict constraints and criteria.
+
+* Prompt Precisely: Use roles, few-shot examples and chain-of-thought.
+
+* Review Everything: Verify thoroughly against the specification.
+
+
 TIP: Superpowers mit Design Patterns
 
 * Test Driven development
@@ -127,12 +167,12 @@ eher verwirrend für den agent
 
 
 
-=== Prcedurales
+=== Procedurales
 
 * skills:
 ** Besteht aus einem Prompt-Mapper (Reizworte) und Text und auch Dateien die er braucht zB shell-Files
 ** Wenn die Reiszworte im Prompt vorkommen, dann wird der Text des Skills gelesen (Instruktionen)
-* Es gibt shard-skills und projektspezifische Skills
+* Es gibt shared-skills und projektspezifische Skills
 * commands
 ** Prozedurale Anweisungen
 ** zB *träumen*, zum Reorganisieren des Memories und die Infos aus dem Memory sollen in die Projektrepos übernommen werden.
