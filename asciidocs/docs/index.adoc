@@ -42,7 +42,7 @@ endif::backend-html5[]
 
 * Trade-offs: More tokens increase cost and latency, but provide richer context.
 
-=== Contxt & Window Management
+=== Context & Window Management
 
 * Complete Scope: System prompt + conversation history + user input + output response
 
@@ -68,20 +68,20 @@ endif::backend-html5[]
 
 ==== Prompt Engineering: Basics
 
-* Vague Prompt: "Write me a Dockerfile" -> unpredictable output.
+* Vague Prompt: `"Write me a Dockerfile"` -> unpredictable output.
 
-Specific prompt: "Write a multi-stage Dockerfile for Go 1.24, non-root nuser, pinned digests, no hardcoded secrets "
+* Specific prompt: `"Write a multi-stage Dockerfile for Go 1.24, non-root nuser, pinned digests, no hardcoded secrets"`
 
-...
+* Core Rule: The more contraints you specify, the better the output.
 
 
 ==== Prompt Engineering: Advanced
 
-* System Prompts: Explicitly define persona and role (e.g. "You are a K8s security auditor"). -> ganz schlecht. Er ist kein Experte und würde nichts mahr nachsehen.
+* System Prompts: Explicitly define persona and role (e.g. `"You are a K8s security auditor"`). -> ganz schlecht. Er ist kein Experte und würde nichts mahr nachsehen.
 
-* Few-Shot examples: ...
+* Few-Shot examples: Provide 1-2 examples of target input/output pairs.
 
-* Chain-ofThought: Use "Think step by step" to enforce reasoning before answers.
+* Chain-ofThought: Use `"Think step by step"` to enforce reasoning before answers.
 
 * Iterative Refinement: Avoid one-shot expectations; generate, critique and improve.
 
@@ -90,9 +90,9 @@ Specific prompt: "Write a multi-stage Dockerfile for Go 1.24, non-root nuser, pi
 
 Architecting software with AI as the builder.
 
-==== Spec-Driven Principles
+==== Spec-Driven Principles (SDD) - Architecting Software with AI as the Builder
 
-* Role Separation: You are the architect, AI is the builder.
+* Role Separation: You are the architect, *AI is the builder*.
 
 * Explicit Requirements: Define constraints, behaviors and edge cases up front.
 
@@ -102,13 +102,15 @@ Architecting software with AI as the builder.
 
 ==== The SDD Workflow
 
-* 01 Spec: Define what to build
+[cols="1,1,1,1", options="header"]
+|===
+|01 Spec |02 Generate |03 Review |04 Iterate
 
-* 02 Generate: AI writes the code
-
-* 03 Review: Check against spec
-
-* 04 Iterate: Refine with feedback
+|Define what to build
+|AI writes the code
+|Check against spec
+|Refine with feedback
+|===
 
 NOTE: The spec is your source of truth -- not the AI, not your assumptions.
 
@@ -131,7 +133,7 @@ TIP: Superpowers mit Design Patterns
 * Test Driven development
 
 ** Kein Produktivcode ohne roten Test vorab
-** Das minimalste wird gemacht, damit der Test rot wird
+** Das Minimalste wird gemacht, damit der Test rot wird
 ** Rule: Beim Schreiben von Test wird kein Produktivcode geändert
 ** Rule: Beim Schreiben von Produktionscode wird kein Test geändert
 
