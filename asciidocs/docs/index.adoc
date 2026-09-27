@@ -1,4 +1,4 @@
-= 26/27 - 5ahitm - syp - Lecture Notes
+= 26/27 - 5ahitm - itp - Lecture Notes
 Thomas Stütz, Christian Aberger
 1.0.0, {docdate}: Lecture Notes for Courses at HTL Leonding
 :icons: font
@@ -10,8 +10,8 @@ ifndef::imagesdir[:imagesdir: images]
 :toc:
 ifdef::backend-html5[]
 // https://fontawesome.com/v4.7.0/icons/
-icon:file-text-o[link=https://github.com/2627-3ihif/2627-3ihif-syp-lecture-notes/blob/main/asciidocs/docs/{docname}.adoc] ‏ ‏ ‎
-icon:github-square[link=https://github.com/2627-3ihif/2627-3ihif-syp-lecture-notes] ‏ ‏ ‎
+icon:file-text-o[link=https://github.com/2627-5ahitm/2627-5ahitm-itp-lecture-notes/blob/main/asciidocs/docs/{docname}.adoc] ‏ ‏ ‎
+icon:github-square[link=https://github.com/2627-5ahitm/2627-5ahitm-itp-lecture-notes] ‏ ‏ ‎
 icon:home[link=http://edufs.edu.htl-leonding.ac.at/~t.stuetz/hugo/2021/01/lecture-notes/]
 endif::backend-html5[]
 
