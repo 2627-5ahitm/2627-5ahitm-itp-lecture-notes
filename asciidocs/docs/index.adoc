@@ -192,15 +192,57 @@ IMPORTANT: Alle skills and rules werden in einem git-submodule "agents-and-skill
 
 
 
+== 2026-09-29
+
+tmux new -s devbox
+
+
+ /rename devbox
+
+
+ /remote-control
+
+ctrl-b d
+
+image::remote-session.png[]
+
+
+
+git-worktrees
+
+
+== 2026-10-05
+
+
+
+* superbox: eine vm auf der claude läuft im yolo mode. Wir verbinden uns auf die superbox per tmux-session. Ist der supervisor für die devboxen
+* devbox: sind vm's für die einzelnen Aufgaben (Programmer, tester, ...)
+* lokaler Prompt: connectet auf die superbox
 
 
 
 
+* Projekt ai-agent
+
+----
+leocloud auth logout
+leoclout auth login
+----
+
+* Wann entscheidet sich k8s beim `docker pull` ein neues Image zu ziehen
+** wenn tag = `latest` und `Imagepullpolicy=Always`
 
 
 
+* Welche Arten von Speicher gibt es in docker?
 
+** Bind mounnts (Zugriff auf lokales Verzeichnis; unsicher wegen Rechte)
+** docker volumes (Auch auf lokaler HD, aber von docker runtime verwaltet)
 
+* Welche Arten von Speicher gibt es in k8s?
+
+* PVC <-- PV
+* local storage
 
 
 
