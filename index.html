@@ -451,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Thomas Stütz, Christian Aberger</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-09-27</span>
+<span id="revdate">2026-10-08</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -469,6 +469,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_procedurales">1.7. Procedurales</a></li>
 </ul>
 </li>
+<li><a href="#_2026_09_29">2. 2026-09-29</a></li>
+<li><a href="#_2026_10_05">3. 2026-10-05</a></li>
 </ul>
 </div>
 </div>
@@ -872,11 +874,103 @@ Alle skills and rules werden in einem git-submodule "agents-and-skills" gespeich
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2026_09_29"><a class="anchor" href="#_2026_09_29"></a>2. 2026-09-29</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>tmux new -s devbox</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>/rename devbox</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>/remote-control</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ctrl-b d</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/remote-session.png" alt="remote session">
+</div>
+</div>
+<div class="paragraph">
+<p>git-worktrees</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_10_05"><a class="anchor" href="#_2026_10_05"></a>3. 2026-10-05</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>superbox: eine vm auf der claude läuft im yolo mode. Wir verbinden uns auf die superbox per tmux-session. Ist der supervisor für die devboxen</p>
+</li>
+<li>
+<p>devbox: sind vm&#8217;s für die einzelnen Aufgaben (Programmer, tester, &#8230;&#8203;)</p>
+</li>
+<li>
+<p>lokaler Prompt: connectet auf die superbox</p>
+</li>
+<li>
+<p>Projekt ai-agent</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>leocloud auth logout
+leoclout auth login</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wann entscheidet sich k8s beim <code>docker pull</code> ein neues Image zu ziehen</p>
+<div class="ulist">
+<ul>
+<li>
+<p>wenn tag = <code>latest</code> und <code>Imagepullpolicy=Always</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Welche Arten von Speicher gibt es in docker?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Bind mounnts (Zugriff auf lokales Verzeichnis; unsicher wegen Rechte)</p>
+</li>
+<li>
+<p>docker volumes (Auch auf lokaler HD, aber von docker runtime verwaltet)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Welche Arten von Speicher gibt es in k8s?</p>
+</li>
+<li>
+<p>PVC &#8592;- PV</p>
+</li>
+<li>
+<p>local storage</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-09-27 13:54:06 UTC
+Last updated 2026-10-08 19:24:14 UTC
 </div>
 </div>
 </body>
