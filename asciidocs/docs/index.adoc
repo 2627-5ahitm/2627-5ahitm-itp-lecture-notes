@@ -245,4 +245,27 @@ leoclout auth login
 * local storage
 
 
+== 2026-10-12
+
+----
+kubectl exec -it devbox-5995dfdf4c-qbwdd -- bash
+----
+
+* Url des Demoprojektes: https://github.com/2627-5ahitm/ai-cloud-demo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
