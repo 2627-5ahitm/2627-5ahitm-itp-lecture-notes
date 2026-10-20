@@ -254,11 +254,20 @@ kubectl exec -it devbox-5995dfdf4c-qbwdd -- bash
 * Url des Demoprojektes: https://github.com/2627-5ahitm/ai-cloud-demo
 
 
+== 2026-10-20
 
+* LLM-Wikis vs openSpec
 
+* git-worktree
 
+* HÜ: Sie können erklären, welches Problem die Verwendung von git-worktrees im Zusammenhang bei der Software-Entwicklung mit KI-Agenten löst im Unterschied zu git-Branches. Wie verwendet man worktrees (konkretes Bsp inklusive merge und delete).
 
-
+* openSpec-Review
+** Vorbedingung: aktueller Projektstand gemerged im main bereits mit openspec. Die projektspezifische Spezifikation muss bereits in  openpec enthalten sein und dem aktuellen Codestand entsprechen.
+** Beim Review wird eine kleine (zusätzliche) Aufgabenstellung gegeben. Der Schüler muss den opensprec-Zyklus durchmachen.
+** Ergebnis:
+*** Funktionalität gegeben
+*** soezifukation aktualisiert
 
 
 
