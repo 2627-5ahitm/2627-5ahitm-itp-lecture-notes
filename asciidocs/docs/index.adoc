@@ -270,7 +270,10 @@ kubectl exec -it devbox-5995dfdf4c-qbwdd -- bash
 *** Spezifikation aktualisiert
 
 
+=== Ev. nützliche Frameworks
 
+* Quint.sh
+* Impeccable
 
 
 
