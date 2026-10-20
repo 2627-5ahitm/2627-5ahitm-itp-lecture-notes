@@ -267,7 +267,7 @@ kubectl exec -it devbox-5995dfdf4c-qbwdd -- bash
 ** Beim Review wird eine kleine (zusätzliche) Aufgabenstellung gegeben. Der Schüler muss den opensprec-Zyklus durchmachen.
 ** Ergebnis:
 *** Funktionalität gegeben
-*** soezifukation aktualisiert
+*** Spezifikation aktualisiert
 
 
 
