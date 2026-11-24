@@ -451,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Thomas Stütz, Christian Aberger</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-10-20</span>
+<span id="revdate">2026-11-24</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -475,6 +475,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_2026_10_20">5. 2026-10-20</a>
 <ul class="sectlevel2">
 <li><a href="#_ev_nützliche_frameworks">5.1. Ev. nützliche Frameworks</a></li>
+</ul>
+</li>
+<li><a href="#_2026_11_24">6. 2026-11-24</a>
+<ul class="sectlevel2">
+<li><a href="#_agentisches_programmieren_mit_loops">6.1. Agentisches Programmieren mit Loops</a></li>
+<li><a href="#_ralph_loop">6.2. Ralph-Loop</a></li>
+<li><a href="#_dream_skill">6.3. Dream Skill</a></li>
 </ul>
 </li>
 </ul>
@@ -1046,11 +1053,101 @@ leoclout auth login</pre>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2026_11_24"><a class="anchor" href="#_2026_11_24"></a>6. 2026-11-24</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_agentisches_programmieren_mit_loops"><a class="anchor" href="#_agentisches_programmieren_mit_loops"></a>6.1. Agentisches Programmieren mit Loops</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Wir verwenden Ralph-Loops - obwohl Claude eigene Loops hat - um agentenneutral zu sein und auch Gemini, Kimi usw verwenden zu können</p>
+</li>
+<li>
+<p>run books</p>
+</li>
+<li>
+<p>epics</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ralph_loop"><a class="anchor" href="#_ralph_loop"></a>6.2. Ralph-Loop</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/snarktank/ralph" class="bare">https://github.com/snarktank/ralph</a></p>
+</li>
+<li>
+<p>Zerlegt große Aufgabe in kleine Aufgaben. Für jede aufgabe wird eine eigene Shell gestartet.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>tmux
+claude --help | grep danger
+claude
+/opsx:explore
+send cheap subagents to do a websearch for ralphloops. Start with "https://github.com/snarktank/ralph" ans "https://ralphloops.sh". i want to use ralph loops in my project. Your task is to help me plan the skills and command
+
+
+ask your questions in the format 1a, 2b
+
+you don't have a google plugin, but you have playwright-cli installed. Use this.
+
+/opsx:propose</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Skill: Besteht aus zwei Teilen:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Frontmatter:</p>
+</li>
+<li>
+<p>Inhalt</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>muss explizit mit / aufgerufen werden</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dream_skill"><a class="anchor" href="#_dream_skill"></a>6.3. Dream Skill</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Man braucht "Dreams" weil das memory in den subagents in zb progess.md - files verteilt ist (in den verschiedenen git-worktrees)</p>
+</li>
+<li>
+<p>Der Dream Skill von Anthropic ist nicht so gut</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-10-20 07:49:40 UTC
+Last updated 2026-11-24 08:53:31 UTC
 </div>
 </div>
 </body>
