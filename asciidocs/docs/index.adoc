@@ -276,6 +276,89 @@ kubectl exec -it devbox-5995dfdf4c-qbwdd -- bash
 * Impeccable
 
 
+== 2026-11-24
+
+=== Agentisches Programmieren mit Loops
+
+* Wir verwenden Ralph-Loops - obwohl Claude eigene Loops hat - um agentenneutral zu sein und auch Gemini, Kimi usw verwenden zu können
+
+* run books
+* epics
+
+=== Ralph-Loop
+
+* https://github.com/snarktank/ralph
+
+* Zerlegt große Aufgabe in kleine Aufgaben. Für jede aufgabe wird eine eigene Shell gestartet.
+
+----
+tmux
+claude --help | grep danger
+claude
+/opsx:explore
+send cheap subagents to do a websearch for ralphloops. Start with "https://github.com/snarktank/ralph" ans "https://ralphloops.sh". i want to use ralph loops in my project. Your task is to help me plan the skills and command
+
+
+ask your questions in the format 1a, 2b
+
+you don't have a google plugin, but you have playwright-cli installed. Use this.
+
+/opsx:propose
+----
+
+* Skill: Besteht aus zwei Teilen:
+** Frontmatter:
+** Inhalt
+
+* Command
+** muss explizit mit / aufgerufen werden
+
+
+=== Dream Skill
+
+* Man braucht "Dreams" weil das memory in den subagents in zb progess.md - files verteilt ist (in den verschiedenen git-worktrees)
+
+* Der Dream Skill von Anthropic ist nicht so gut
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
